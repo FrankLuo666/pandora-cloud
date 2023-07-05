@@ -1,5 +1,5 @@
 # 20230701 add
-run.sh
+run*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
