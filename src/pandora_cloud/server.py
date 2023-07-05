@@ -109,7 +109,7 @@ class ChatBot:
                 return False, ti['user_id'], ti['email'], access_token, {'exp': ti['expire_at']}
 
             if 'https://api.openai.com/auth' not in payload or 'https://api.openai.com/profile' not in payload:
-                raise Exception('invalid access token')
+                raise Exception('access token无效')
         except:
             return True, None, None, None, None
 
@@ -216,7 +216,7 @@ class ChatBot:
             except Exception as e:
                 error = str(e)
 
-        return jsonify({'code': 500, 'message': 'Invalid access token: {}'.format(error)})
+        return jsonify({'code': 500, 'message': 'access token无效: {}'.format(error)})
 
     async def chat(self, conversation_id=None):
         err, user_id, email, _, _ = await self.__get_userinfo()
